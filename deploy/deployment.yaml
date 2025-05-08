@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadta:
+  name: backend-app
+  labels:
+    app: backend-app
+  spec:
+    replicas: 2
+    selector:
+      matchLabels:
+        app: backend-app
+      template:
+        metadata:
+          labels:
+            app: backend-app
+          spec:
+            containers:
+              - name: backend-app
+                image: avigupta63/project-backend-img:latest
+                ports:
+                  - containerPort: 8080
